@@ -1,0 +1,18 @@
+.sidebar {
+    width: 171px;
+    height: 100vh;
+    border: solid 0.7px gainsboro;
+    background: rgb(255, 255, 255);
+    position: fixed;
+    z-index: 5;
+    color : rgb(12, 119, 212);
+    /* 나중에 줄 최종스타일
+    transform : translateX(-100px);
+     */
+  }
+
+  .sidebar div {
+    margin : 60px 0px 0px 15px;
+    font-size: 20px;
+  }
+  
