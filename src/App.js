@@ -7,7 +7,8 @@ import Sidebar from './pages/Sidebar.js';
 import Nav from 'react-bootstrap/Nav';
 import { BsFillPersonFill } from "react-icons/bs";
 import {Routes, Route, Link} from 'react-router-dom';
-
+import Sidenav from "./pages/Sidenav";
+import {FaHatWizard} from 'react-icons/bs'
 
 function App() {
   return (
@@ -16,28 +17,28 @@ function App() {
           <div>
             <Nav className =" Header-all">
               <Nav.Item className = "Header-Logo">
-                <Nav.Link href="/" className = "Oz">5OzSoftware</Nav.Link>
-              </Nav.Item>
-            
-              <Nav className ='Main-setting'>
-                <Nav.Item className = "Nav-icon">
-                  <BsFillPersonFill/>
-                </Nav.Item>
+                <Nav.Link href="/">5OzSoftware</Nav.Link>
                 <Nav.Item >
-                  <Nav.Link href="/Login"><button className="Header-Login">Login</button></Nav.Link>
-                </Nav.Item>          
-              </Nav>   
+                  <Nav.Link href="/Login"><button className="Header-Login">로그인</button></Nav.Link>
+                  <Link to="/Register"><button className="Header-Register">회원가입</button></Link>
+                </Nav.Item>   
+              </Nav.Item>  
             </Nav>
         
-        <div className = "Main-Login">5Oz Sofware의 제품을 만나보세요! </div>
+        <div className = "Main-text">5Oz Sofware의 제품을 만나보세요! </div>
         <Slidebar></Slidebar>          
           </div>
         }/>
           
         <Route path ="/Login" element={<Login></Login>} />
+        <Route path = "ProjectSelect" element = {
+        <div>
+          <Header/>
+          <div className='table'></div>
+        </div>}/>
         <Route path ="/Main" element={[
           <Header></Header>, 
-          <Sidebar></Sidebar>
+          <Sidenav></Sidenav>
         ]} />
         
       </Routes>

@@ -1,25 +1,16 @@
 .Header-all {
-  height: 50px;
-  font-size: 45px;
+  height: 50px; 
 }
 
 .Header-Logo {
-  margin-left: 650px;
-
-  
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+  width: 100%;
 }
 
-.Main-setting {
-  font-size: 20px;
-  margin-left: 300px;
-  line-height: 60px;
 
-}
-.link {
-  
-}
-
-.Main-Login {
+.Main-text {
   height: 50px;
   background-color: rgb(122, 152, 227);
   margin-top: 30px;
@@ -28,23 +19,29 @@
   align-items: center;
   font-size: 20px;
   color:white;
-  
 }
 
-.Header-Login{
-  background-color: rgb(186, 193, 248);
-  border-radius: 20px;
-  width:100px;
-  height: 40px;
-  text-align: center;
-  font-size: 15px;
-  color:white;
-  border-color: rgb(186, 193, 248);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top:10px;
+.Header-Login {
+  position: absolute;
+  right:40px;
+  top:20px;
+  z-index:1;
+  border:none;
+  color: rgb(0, 0, 0);
+  border-radius: 15px;
+  block-size: 40px;
+  font-size: 18px;
+  background-color: white;
 }
 
-.Nav-icon{
+.Header-Register{
+  position: absolute;
+  right:120px;
+  top:20px;
+  border:none;
+  color: rgb(0, 0, 0);
+  border-radius: 15px;
+  block-size: 40px;
+  font-size: 18px;
+  background-color: white;
 }
