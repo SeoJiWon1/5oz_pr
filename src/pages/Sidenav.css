@@ -1,0 +1,66 @@
+.SideNav {
+    width: 220px;
+    height: 100vh;
+    position: fixed;
+    padding: 0px;
+    /* 상하, 좌우 */
+    border: solid 0.7px gainsboro;
+    box-sizing: border-box;
+    transition: width 0.1s ease-in-out;
+}
+
+.close {
+    width: 10px;
+    height: 100vh;
+    border: solid 0.7px gainsboro;
+}
+
+.close a{
+    display:none;
+}
+
+.SideNav ul {
+    list-style: none;
+    padding: 0;
+    margin:0;
+}
+
+.SideNav a {
+    text-decoration: none;
+    color: rgb(62, 62, 62);
+    
+}
+
+.SideNav-list {
+    padding: 5px;
+    font-size: 17px;
+}
+
+.SideNav li:hover{
+    background-color:skyblue;
+    border-radius: 15px;
+   
+    
+}
+
+.SideNav-icon {
+
+   margin-left: 30px;
+}
+
+.SideNav-text {
+    margin-left: 20px;
+}
+
+.SideNav-arrow {
+    position: absolute;
+    right:-14px;
+    top: 16px;
+    cursor: pointer;
+    padding: 5px;
+    background-color: rgb(180, 180, 180);
+    border-radius: 50%;
+    color:rgb(255, 255, 255);
+    font-size: 28px;
+
+}
