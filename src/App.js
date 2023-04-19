@@ -15,17 +15,17 @@ function App() {
       <Routes>
         <Route path = "/" element ={
           <div>
-            <Nav className =" Header-all">
-              <Nav.Item className = "Header-Logo">
+            <Nav className =" header-all">
+              <Nav.Item className = "header-logo">
                 <Nav.Link href="/">5OzSoftware</Nav.Link>
                 <Nav.Item >
-                  <Nav.Link href="/Login"><button className="Header-Login">로그인</button></Nav.Link>
-                  <Link to="/Register"><button className="Header-Register">회원가입</button></Link>
+                  <Nav.Link href="/Login"><button className="header-login">로그인</button></Nav.Link>
+                  <Link to="/Register"><button className="header-register">회원가입</button></Link>
                 </Nav.Item>   
               </Nav.Item>  
             </Nav>
         
-        <div className = "Main-text">5Oz Sofware의 제품을 만나보세요! </div>
+        <div className = "main-text">5Oz Sofware의 제품을 만나보세요! </div>
         <Slidebar></Slidebar>          
           </div>
         }/>
@@ -34,7 +34,7 @@ function App() {
         <Route path = "ProjectSelect" element = {
         <div>
           <Header/>
-          <div className='table'></div>
+          p<div className='pr-header'></div>
         </div>}/>
         <Route path ="/Main" element={[
           <Header></Header>, 

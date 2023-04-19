@@ -13,18 +13,18 @@ function Sidenav() {
     };
     
     return(
-        <div className={`SideNav ${사이드바 ? "" : "close"}`}>
+        <div className={`sidenav ${사이드바 ? "" : "close"}`}>
                 <ul>
-                    <li className='SideNav-list'>
-                        <a className='SideNav-icon' href ='/'><FiPlusCircle></FiPlusCircle>채널</a>
-                        <HiArrowLongLeft className='SideNav-arrow' 
+                    <li className='sidenav-list'>
+                        <a className='sidenav-icon' href ='/'><FiPlusCircle></FiPlusCircle>채널</a>
+                        <HiArrowLongLeft className='sidenav-arrow' 
                         onClick={SideNavChange}/>
                     </li>
-                    <li className='SideNav-list'>
-                        <a className='SideNav-icon' href ='/'><HiFolderPlus></HiFolderPlus>만들기</a>
+                    <li className='sidenav-list'>
+                        <a className='sidenav-icon' href ='/'><HiFolderPlus></HiFolderPlus>만들기</a>
                     </li>
-                    <li className='SideNav-list'>
-                        <a className='SideNav-icon' href ='/'><HiQueueList></HiQueueList>백로그</a>
+                    <li className='sidenav-list'>
+                        <a className='sidenav-icon' href ='/'><HiQueueList></HiQueueList>백로그</a>
                     </li>
                 </ul>
         </div>      

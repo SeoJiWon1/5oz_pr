@@ -42,29 +42,31 @@ function Login() {
   }
 
   return (
-    <div className="Login-all">
-      <div className="Login-Logo">5oz</div>
-      <Form className="form" onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email</Form.Label>
-          <Form.Control type="email" value={username} onChange={usernameChange} placeholder="xxxx@ozsoftware.com" />
-          <Form.Text className="text-muted">
-            고객님의 정보는 공유되지 않습니다.
-          </Form.Text>
-        </Form.Group>
+    <PersistGate persistor={persistor}>
+      <div className="Login-all">
+        <div className="Login-Logo">5oz</div>
+        <Form className="form" onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email</Form.Label>
+            <Form.Control type="email" value={username} onChange={usernameChange} placeholder="xxxx@ozsoftware.com" />
+            <Form.Text className="text-muted">
+              고객님의 정보는 공유되지 않습니다.
+            </Form.Text>
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" value={password} onChange={passwordChange} placeholder="Password" />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="아이디 저장" />
-        </Form.Group>
-        <Button variant="primary" type="submit" className="btn-log">
-          Login
-        </Button>
-      </Form>
-    </div>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" value={password} onChange={passwordChange} placeholder="Password" />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Check type="checkbox" label="아이디 저장" />
+          </Form.Group>
+          <Button variant="primary" type="submit" className="btn-log">
+            Login
+          </Button>
+        </Form>
+      </div>
+    </PersistGate>  
   );
 }
 

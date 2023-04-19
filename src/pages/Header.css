@@ -1,21 +1,21 @@
-.Nav-all {
+.nav-all {
     border: solid 0.5px gainsboro;
     max-height: 100px;
 }
-.Nav-logo {
+.nav-logo {
     display: flex;
     justify-content: center;
     align-items: center;
 
 }
-.Logo {
+.logo {
     
     font-size : 23px;
     font-weight: lighter;
     color:rgb(0, 0, 0);
 }
 
-.Nav-setting {
+.nav-setting {
     position: absolute;
     right:0;
     top:0;
@@ -24,7 +24,7 @@
 }
 
 
-.Nav-icon {
+.nav-icon {
     margin-top : 5px;
     
 }
@@ -33,7 +33,7 @@
     
 }
 
-.Nav-type {
+.nav-type {
     margin-top:5px;
     font-size :16.5px;
     font-weight: lighter;

@@ -5,11 +5,11 @@ import view3 from './화면3.png';
 import './Slidebar.css';
 function Slidebar() {
   return (
-    <div className = "Slidebar-all">
+    <div className = "slidebar-all">
     <Carousel variant="dark">   
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="d-block w-400"
           src={view1} width={400} height={600}
           alt="First slide"
         />
@@ -20,7 +20,7 @@ function Slidebar() {
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="d-block w-400"
           src={view2} width={400} height={600}
           alt="Second slide"
         />
@@ -31,7 +31,7 @@ function Slidebar() {
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="d-block w-400"
           src={view3} width={400} height={600}
           alt="Third slide"
         />

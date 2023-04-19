@@ -1,4 +1,4 @@
-.SideNav {
+.sidenav {
     width: 220px;
     height: 100vh;
     position: fixed;
@@ -6,11 +6,11 @@
     /* 상하, 좌우 */
     border: solid 0.7px gainsboro;
     box-sizing: border-box;
-    transition: width 0.1s ease-in-out;
+    transition: width 0.2s ease-in-out;
 }
 
 .close {
-    width: 10px;
+    width: 30px;
     height: 100vh;
     border: solid 0.7px gainsboro;
 }
@@ -19,40 +19,40 @@
     display:none;
 }
 
-.SideNav ul {
+.sidenav ul {
     list-style: none;
     padding: 0;
     margin:0;
 }
 
-.SideNav a {
+.sidenav a {
     text-decoration: none;
     color: rgb(62, 62, 62);
     
 }
 
-.SideNav-list {
+.sidenav-list {
     padding: 5px;
     font-size: 17px;
 }
 
-.SideNav li:hover{
+.sidenav li:hover{
     background-color:skyblue;
     border-radius: 15px;
    
     
 }
 
-.SideNav-icon {
+.sidenav-icon {
 
    margin-left: 30px;
 }
 
-.SideNav-text {
+.sidenav-text {
     margin-left: 20px;
 }
 
-.SideNav-arrow {
+.sidenav-arrow {
     position: absolute;
     right:-14px;
     top: 16px;
