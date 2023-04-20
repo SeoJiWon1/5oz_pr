@@ -27,19 +27,26 @@ function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    // if (!username || !password ){
+    //   alert('이메일과 비밀번호를 적어주세요');
+    // }
+    axios.post('http://localhost:8080/api/post/01', { username, password }, {
+    headers: {
+    'Content-Type': 'application/json'
+    }
+    })
     // 로그인 요청을 보내고 JWT 토큰을 받아옴
-    axios.post('/api/login', { username, password })
-      .then(response => {
-        localStorage.setItem('token', response.data.token);
-        // JWT 토큰을 로컬 스토리지에 저장
-        dispatch(setToken(response.data.token)); // redux 액션 호출하여 토큰 상태 업데이트
-        navigate("/Main"); // "/Main" 경로로 페이지 이동
-        // 로그인 성공 후의 처리를 진행 (예 : 페이지 이동)
-      })
-      .catch(error => {
-        alert('존재하지 않는 아이디입니다.')
-      })
-  }
+    .then(response => {
+      localStorage.setItem('token', response.data.token);
+      // JWT 토큰을 로컬 스토리지에 저장
+      dispatch(setToken(response.data.token)); // redux 액션 호출하여 토큰 상태 업데이트
+      navigate("/ProjectSelect"); // "/ProjectSelect" 경로로 페이지 이동
+      // 로그인 성공 후의 처리를 진행 (예 : 페이지 이동)
+    })
+    .catch(error => {
+      alert('존재하지 않는 아이디이거나 비밀번호가 다릅니다.')
+    })
+}
 
   return (
     <PersistGate persistor={persistor}>
