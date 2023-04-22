@@ -4,9 +4,8 @@ import { HiFolderPlus, HiQueueList, HiChevronRight, HiArrowLongLeft} from "react
 import {useState} from "react";
 
 function Sidenav() {
-    const[사이드바, 사이드바상태변경] = useState(true);  
-    // 사이드바가 true일 때 width는 220px이고 false일 때 width는 70px이다. 
-    // true일 때 open 상태 구현예정
+    const[사이드바, 사이드바상태변경] = useState(true);   
+    // true일 때 open 상태 구현
     
     const SideNavChange = () => {
         사이드바상태변경(!사이드바);
