@@ -3,4 +3,8 @@ export const setToken = (token) => {
     localStorage.setItem('token', token);
   };
 
-  
+//   function setToken(token){
+//     return(
+//       localStorage.setItem('token', token )
+//   );
+// }
