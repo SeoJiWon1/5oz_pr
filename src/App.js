@@ -3,12 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './pages/Header';
 import Login from './pages/Login.js';
 import Slidebar from './pages/Slidebar.js';
-import Sidebar from './pages/Sidebar.js';
 import Nav from 'react-bootstrap/Nav';
-import { BsFillPersonFill } from "react-icons/bs";
 import {Routes, Route, Link} from 'react-router-dom';
 import Sidenav from "./pages/Sidenav";
-import {FaHatWizard} from 'react-icons/bs'
 
 function App() {
   return (
@@ -32,13 +29,20 @@ function App() {
           
         <Route path ="/Login" element={<Login></Login>} />
         <Route path = "ProjectSelect" element = {
-        <div>
-          <Header/>
-          p<div className='pr-header'></div>
-        </div>}/>
+          <div>
+            <Header/>
+            <div className='header-container'>
+              <div className = "header-text">
+                프로젝트
+              </div>
+              <button className="header-btncrt">프로젝트 만들기</button>
+            </div>
+          </div>}
+        />
         <Route path ="/Main" element={[
           <Header></Header>, 
           <Sidenav></Sidenav>
+          
         ]} />
         
       </Routes>
