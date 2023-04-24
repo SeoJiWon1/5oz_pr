@@ -3,6 +3,7 @@ import view1 from './화면1.png';
 import view2 from './화면2.png';
 import view3 from './화면3.png';
 import './Slidebar.css';
+
 function Slidebar() {
   return (
     <div className = "slidebar-all">
