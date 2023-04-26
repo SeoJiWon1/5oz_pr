@@ -8,7 +8,7 @@ const refreshToken = (callback) => {
   })
   .then(response => {
     console.log("res.data.accesstoken : " + response.data);
-    axios.defaults.headers.common["Authorization"] = `Bearer ${response.data.acceesstoken}`;
+    axios.defaults.headers.common["Authorization"] = `Bearer ${response.data}`;
     if (callback) {
       callback(true);
     }
