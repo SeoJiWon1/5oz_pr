@@ -11,13 +11,19 @@ import { useNavigate } from "react-router-dom";
 import refreshToken from "../path/to/utils";
 
 function Login() {
-  const [username, setUsername] = useState("");
+  const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
+  function handleLoginSuccess(){
+    if(isLoggedIn){
+      navigate("/ProjectSelect");
+      } 
+  }
   
-  function usernameChange(e) {
-    setUsername(e.target.value);
+  function userIdChange(e) {
+    setUserId(e.target.value);
   }
 
   function passwordChange(e) {
@@ -26,28 +32,29 @@ function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    const data = {username, password};
+    const data = {userId, password};
     // if (!username || !password ){
     //   alert('이메일과 비밀번호를 적어주세요');
     // }
-    axios.post('http://localhost:8080/api/post/01',data, {
+    axios.post('http://localhost:8080/me',data, {
     headers: {
     'Content-Type': 'application/json'
     }
     })
     .then(response => {
-      axios.defaults.headers.common['Authorization']=`Bearer ${response.data.accesstoken}`; //'Bearer' + response.data;
+      axios.defaults.headers.common['Authorization']=`Bearer ${response.data}`; //'Bearer' + response.data;
       // 'axios.post요청이 성공했을 때 'Authorization' 헤더에  Bearer 타입의 acceesstoken 값을 설정하여 서버에 인증을 요청하고 있는 것
-      localStorage.setItem('accesstoken', response.data.accesstoken);
+      localStorage.setItem('accesstoken', response.data);
       // access 토큰을 로컬 스토리지에 저장
-      navigate("/ProjectSelect"); // "/ProjectSelect" 경로로 페이지 이동
-      // 로그인 성공 후의 처리를 진행 (예 : 페이지 이동)
+      setIsLoggedIn(true);
+      handleLoginSuccess();
       setTimeout(function(){
         refreshToken(null);
       }, (60 * 1000));
     })
     .catch(error => {
       alert('존재하지 않는 아이디이거나 비밀번호가 다릅니다.')
+
     })
 }
 
@@ -58,7 +65,7 @@ function Login() {
         <Form className="form" onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email</Form.Label>
-            <Form.Control type="email" value={username} onChange={usernameChange} placeholder="xxxx@ozsoftware.com" />
+            <Form.Control type="text" value={userId} onChange={userIdChange} placeholder="xxxx@ozsoftware.com" />
             <Form.Text className="text-muted">
               고객님의 정보는 공유되지 않습니다.
             </Form.Text>
