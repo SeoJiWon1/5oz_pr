@@ -1,6 +1,6 @@
 import './Sidenav.css';
 import { FiPlusCircle } from "react-icons/fi";
-import { HiFolderPlus, HiQueueList, HiChevronRight, HiArrowLongLeft} from "react-icons/hi2";
+import { HiFolderPlus, HiQueueList, HiArrowLongLeft} from "react-icons/hi2";
 import {useState} from "react";
 
 function Sidenav() {
