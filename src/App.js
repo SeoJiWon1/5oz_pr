@@ -7,7 +7,10 @@ import Nav from 'react-bootstrap/Nav';
 import {Routes, Route, Link} from 'react-router-dom';
 import Sidenav from "./pages/Sidenav";
 
+
+
 function App() {
+
   return (
       <Routes>
         <Route path = "/" element ={
@@ -17,7 +20,7 @@ function App() {
                 <Nav.Link href="/">5OzSoftware</Nav.Link>
                 <Nav.Item >
                   <Nav.Link href="/Login"><button className="header-login">로그인</button></Nav.Link>
-                  <Link to="/Register"><button className="header-register">회원가입</button></Link>
+                  <Link to="/SignUp"><button className="header-register">회원가입</button></Link>
                 </Nav.Item>   
               </Nav.Item>  
             </Nav>
@@ -27,7 +30,7 @@ function App() {
           </div>
         }/>
           
-        <Route path ="/Login" element={<Login></Login>} />
+        <Route path ="/Login" element={<Login />} />
         <Route path = "ProjectSelect" element = {
           <div>
             <Header/>
