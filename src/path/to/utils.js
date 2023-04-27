@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const refreshToken = (callback) => {
-  axios.post("/auth/refreshToken", {
+  axios.post("http://localhost:8080/me/login", {
     headers: {
       "Content-Type": "application/json",
     }
