@@ -6,7 +6,7 @@ import Slidebar from './pages/Slidebar.js';
 import Nav from 'react-bootstrap/Nav';
 import {Routes, Route, Link} from 'react-router-dom';
 import Sidenav from "./pages/Sidenav";
-
+import ProjectCreate from "./pages/ProjectCreate";
 
 
 function App() {
@@ -29,7 +29,6 @@ function App() {
         <Slidebar></Slidebar>          
           </div>
         }/>
-          
         <Route path ="/Login" element={<Login />} />
         <Route path = "ProjectSelect" element = {
           <div>
@@ -38,10 +37,11 @@ function App() {
               <div className = "header-text">
                 프로젝트
               </div>
-              <button className="header-btncrt">프로젝트 만들기</button>
+            <Link to ="/ProjectCreate"><button className="header-btncrt">프로젝트 만들기</button></Link>
             </div>
           </div>}
         />
+        <Route path = "/ProjectCreate" element={<ProjectCreate/>}/>
         <Route path ="/Main" element={[
           <Header></Header>, 
           <Sidenav></Sidenav>
