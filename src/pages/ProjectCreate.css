@@ -1,0 +1,57 @@
+.link{
+    color:black;
+    text-decoration:none;
+}
+
+
+.container-all{
+    margin-top:30px;
+    margin-left: 30px;
+    font-size: 18px;
+}
+
+
+
+.container-pr{
+    border: solid 0.3px grey;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 330px;
+    
+}
+
+.container-pr-left{
+    width: 50%;
+    height: 100%;
+    background-color: rgb(230, 234, 234);
+    float:left;
+}
+
+.container-pr-right{
+    width: 50%;
+    height: 100%;
+    background-color: rgb(230, 234, 234);
+    float:left;
+    
+}
+
+.btn-right{
+    position: absolute;
+    bottom:10px;
+    right:10px;
+}
+
+.btn-cancel{
+    background-color: rgb(255, 255, 255);
+    border-radius:7px;
+}
+
+.check{
+    background-color: rgba(13, 120, 251, 0.814);
+    margin-left:4px;
+    margin-right:0.5px;
+    border-radius:7px;
+}
