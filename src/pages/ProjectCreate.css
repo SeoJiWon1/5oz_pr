@@ -10,15 +10,20 @@
     font-size: 18px;
 }
 
+.inputname{
+    width:350px;
+    border: solid 1.7px rgb(204, 203, 203);
+    border-radius:5px;
+}
 
 
 .container-pr{
-    border: solid 0.3px grey;
+    border: solid 0.3px rgb(196, 194, 194);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50%;
+    width: 1000px;
     height: 330px;
     
 }
@@ -26,15 +31,73 @@
 .container-pr-left{
     width: 50%;
     height: 100%;
-    background-color: rgb(230, 234, 234);
+    background-color: rgb(255, 255, 255);
     float:left;
 }
 
 .container-pr-right{
-    width: 50%;
-    height: 100%;
-    background-color: rgb(230, 234, 234);
+    width: 45%;
+    height: 80%;
+    border-radius: 13px;
+    background-color: rgb(255, 255, 255);
     float:left;
+    
+}
+
+.container-pr-rgtall{
+    margin-top:15px;
+    margin-left: 70px;
+}
+
+.container-pr-2 {
+    display: flex;
+  }
+
+.container-pr-2l{
+    display: flex;
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    float:left;
+    width:100px;
+    height: 95px;
+    background-color: rgb(241, 245, 245);
+    border-radius: 10px 0 0 10px;
+    
+}
+
+.container-pr-2r{
+    float:left;
+    width:200px;
+    height: 95px;
+    background-color: rgb(251, 251, 242);
+    border-radius: 0 10px 10px 0;
+    
+}
+
+
+.container-pr-3 {
+    display: flex;
+  }
+
+
+.container-pr-3l{
+    display: flex;
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    float:left;
+    width:100px;
+    height: 95px;
+    background-color: rgb(241, 245, 245);
+    border-radius: 10px 0 0 10px;
+    
+}
+
+.container-pr-3r{
+    float:left;
+    width:200px;
+    height: 95px;
+    background-color: rgb(251, 251, 242);
+    border-radius: 0 10px 10px 0;
     
 }
 
@@ -45,13 +108,43 @@
 }
 
 .btn-cancel{
-    background-color: rgb(255, 255, 255);
+    border:solid 0.3px rgb(244, 240, 240); 
+    background-color: rgb(244, 240, 240);
     border-radius:7px;
 }
 
 .check{
+    color:aliceblue;
     background-color: rgba(13, 120, 251, 0.814);
+    border:solid 0.3px rgba(13, 120, 251, 0.814);
     margin-left:4px;
     margin-right:0.5px;
     border-radius:7px;
+}
+
+.t{
+    margin-top: 10px;
+}
+
+.icon-template{
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-category{
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-text3{
+    font-size: 13px;
+    
+}
+
+.icon-text4{
+    font-size: 8px;
 }
