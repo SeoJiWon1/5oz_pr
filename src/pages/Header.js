@@ -46,11 +46,11 @@ function Header() {
           </Nav.Item>
           <Nav.Item>
             <Nav.Item >
-              <div onClick={()=> {modal == true ? setModal(false) : setModal(true)}}>
+              <div onClick={()=> {modal === true ? setModal(false) : setModal(true)}}>
                 계정
               </div>
               <div>
-                {modal == true ? <Modal/> : null}
+                {modal === true ? <Modal/> : null}
               </div>
             </Nav.Item>
           </Nav.Item>
