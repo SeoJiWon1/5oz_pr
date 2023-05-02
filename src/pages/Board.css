@@ -1,0 +1,49 @@
+.board{
+    padding-left: 40px;
+    margin-left: 200px;
+}
+
+.title{
+    display: flex;
+    padding-top: 30px;
+}
+
+.l_title{
+    width: 30%;
+}
+
+.m_title{
+    width: 20%;
+}
+
+.r_title{
+    width: 20%;
+}
+
+.context{
+    margin-top: 30px;
+    display: flex;
+}
+
+.work {
+    width: 200px;
+    height: 500px;
+    background-color: rgb(202, 202, 202);
+}
+
+.context_title{
+    padding: 10px;
+    
+}
+
+.l_work{
+    margin-right: 30px;
+}
+
+.m_work{
+    margin-right: 30px;
+}
+
+.r_work{
+    margin-right: 30px;
+}
