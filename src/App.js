@@ -7,6 +7,7 @@ import Nav from 'react-bootstrap/Nav';
 import {Routes, Route, Link} from 'react-router-dom';
 import Sidenav from "./pages/Sidenav";
 import ProjectCreate from "./pages/ProjectCreate";
+import Board from "./pages/Board";
 
 
 function App() {
@@ -44,7 +45,9 @@ function App() {
         <Route path = "/ProjectCreate" element={<ProjectCreate/>}/>
         <Route path ="/Main" element={[
           <Header></Header>, 
-          <Sidenav></Sidenav>
+          <Sidenav></Sidenav>,
+          <Board></Board>
+          
           
         ]} />
         
