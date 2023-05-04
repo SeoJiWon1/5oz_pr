@@ -15,10 +15,13 @@ function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const originData = 'client_id:client_secret';
+    
 
     //accesstoken 요청 함수
     function getToken(){
-      const originData = 'client_id:client_secret';
+      //const expiresIn = localStorage.getItem(res.data.expires_in); // 토큰 만료 시간
+      
       console.log(window.btoa(originData));
   
       axios.post('http://localhost:8080/oauth/token?grant_type=password&username=test1&password=test2',
@@ -29,37 +32,104 @@ function Login() {
         }
       ).then( res => {
         console.log(res);
-        getMe();
-        localStorage.setItem("access_token", res.data.access_token);
-
+        if(res.status === 200 ) {
+          localStorage.setItem("access_token", res.data.access_token);
+          localStorage.setItem("refresh_token", res.data.refresh_token);
+          navigate("/ProjectSelect");
+          getMe();
+        // handleLoginSuccess(res);
+        
+        }
       })
-    }
-    //accesstoken 확인 함수
-    function getMe(){
-      axios.get('http://localhost:8080/me',
-      {
-        headers:{
-          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJ0ZXN0MSIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJuYW1lIjoidGVzdCIsInVzcklkIjoidGVzdDEiLCJleHAiOjE2ODI5MDk2MDMsImF1dGhvcml0aWVzIjpbIlNVUEVSIl0sImp0aSI6ImNjNzE1OTc2LWI3MmYtNDBlNy1iMDg2LWRjYTI3NTFlZjUyOCIsImNsaWVudF9pZCI6ImNsaWVudF9pZCJ9.46pgHKmaSuJyRNq_gQs8ZbVJrtsQukwXGGo5ca-Mg9g'
-        }
-      }
-      ).then(res => {
-        console.log(res.status);
-        if(res.status == 200){
-          handleLoginSuccess(res);
-        }
-      }).catch(error => {
+      .catch((error) => {
         console.log(error);
-        alert('토큰이 만료되었습니다. 다시 발급 받아주세요!')
-      })
-    }  
+        alert('아이디 또는 패스워드를 확인해주세요')
+        });
+    }
+    
 
   // 로그인 성공했을 때 처리 
-  function handleLoginSuccess(res){
-    dispatch(setLoggedIn(true));
-    navigate("/ProjectSelect");
-  }
-  
+  // function handleLoginSuccess(res){
+  //   dispatch(setLoggedIn(true));
+  //   navigate("/ProjectSelect");
+  //   getMe(res);
+    
+  // }
  
+  function getMe(res){
+
+    const accessToken = localStorage.getItem("access_token");
+    axios.get('http://localhost:8080/me',
+    {
+      headers:{
+        Authorization: `Bearer ${accessToken}`
+      },
+    })
+    .then(res => {
+      console.log(res.status);
+      if(res.status !== 200){
+          getRefresh();
+      }else{
+        console.log('로그인 성공');
+      }
+      
+    })
+    .catch((error)=> {
+      console.log(error);
+      // if (error.response.status === 401) {
+      //   axios
+      //       .post(
+      //         "http://localhost:8080/oauth/token?grant_type=password&username=test1&password=test2",
+      //         {},
+      //         {
+      //           headers: {
+      //             'Authorization': 'Basic '+window.btoa(originData)
+      //           },
+      //         }
+      //       )
+
+      // }
+    })
+  }
+
+  function getRefresh(){
+
+    const refreshToken = localStorage.getItem("refresh_token");
+    axios.post('http://localhost:8080/oauth/token?grant_type=refresh_token&refresh_token='+refreshToken,
+    {
+      headers:{
+        'Authorization': 'Basic '+window.btoa(originData)
+      },
+    })
+    .then(res => {
+      console.log(res.status);
+      if(res.status === 200){
+          localStorage.setItem("access_token", res.data.access_token);
+          localStorage.setItem("refresh_token", res.data.refresh_token);
+      }else{
+        console.log('logout');
+      }
+      
+    })
+    .catch((error)=> {
+      console.log(error);
+      // if (error.response.status === 401) {
+      //   axios
+      //       .post(
+      //         "http://localhost:8080/oauth/token?grant_type=password&username=test1&password=test2",
+      //         {},
+      //         {
+      //           headers: {
+      //             'Authorization': 'Basic '+window.btoa(originData)
+      //           },
+      //         }
+      //       )
+
+      // }
+    })
+  }
+
+
   return (    
       <div className="Login-all">
         <div className="Login-Logo">5oz</div>
@@ -84,7 +154,6 @@ function Login() {
           </Button>
         </Form>
       </div>
-    
   );
 }
 
