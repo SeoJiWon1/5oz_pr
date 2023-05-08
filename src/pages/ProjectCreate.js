@@ -2,24 +2,40 @@ import './ProjectCreate.css';
 import {Link} from 'react-router-dom';
 import { FcBrokenLink } from "react-icons/fc";
 import { FcConferenceCall } from "react-icons/fc";
+import {useState} from 'react';
 
 
 
 function ProjectCreate(){
+    const[프로젝트명, 프로젝트명변경] = useState("");
+    const projectTitle = (e) =>{
+        프로젝트명변경(e.target.value);
+    };
 
-
+    function submitProjectCreate(e) {
+        e.preventDefault();
+        //axios.post()
+    }
 
     return (
     <div className = "container-all">
         <Link to="/ProjectSelect" className = "link"> 프로젝트 유형으로 돌아가기</Link>
         <div className ='container-pr'>
             <div className='container-pr-left'>
-                <h3>프로젝트 설정</h3>
-                <h6>프로젝트 명*</h6>
-                <input className="inputname"
+                <h3 className= 'container-text1'>프로젝트 설정</h3>
+                <h6 className= 'container-text2'>프로젝트 명*</h6>
+                <input className="input-title"
+                    type = "text"
+                    value = {프로젝트명}
+                    onChange = {projectTitle}  
+                />
+                <h6 className='container-text3'>프로젝트 참여자</h6>
+                <input className='input-account'
                     type = "text"
                 />
             </div>
+
+           
 
             <div className="container-pr-right">
                 <div className='container-pr-rgtall'>
@@ -31,7 +47,7 @@ function ProjectCreate(){
                             </span>
                         </div>
                         <div className='container-pr-2r'>
-
+                        <span className="icon-text2">스크럼타입</span>
                         </div>
                     </div>
                     <h6 className='t'>유형</h6>
