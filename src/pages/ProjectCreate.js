@@ -1,21 +1,51 @@
 import './ProjectCreate.css';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate } from 'react-router-dom';
 import { FcBrokenLink } from "react-icons/fc";
 import { FcConferenceCall } from "react-icons/fc";
-import {useState} from 'react';
-
+import {useState, useEffect} from 'react';
+import axios from'axios';
+import GetMe from './GetMe';
 
 
 function ProjectCreate(){
+
+    useEffect(() => {
+        GetMe();
+        
+    }, [] );
+
+    const navigate = useNavigate();
     const[프로젝트명, 프로젝트명변경] = useState("");
+
+    // 값 입력 시 프로젝트 명 변경됨
     const projectTitle = (e) =>{
         프로젝트명변경(e.target.value);
-    };
+    }
 
+    function postProjectCreate(){
+        axios.post('http://localhost:8080/projects',
+        {
+            "title": 프로젝트명,
+            "assign": "test1"
+        }
+        ).then(res =>{
+            console.log(res);
+            navigate("/ProjectSelect");
+        })
+        .catch((error) => {
+            console.log(error);
+            console.log('에러입니다');
+            
+
+        })
+    }
+
+    // 확인 버튼 누를 때 프로젝트 명 변경 후
     function submitProjectCreate(e) {
         e.preventDefault();
-        //axios.post()
+        postProjectCreate();
     }
+
 
     return (
     <div className = "container-all">
@@ -64,7 +94,7 @@ function ProjectCreate(){
                     </div>    
                     <div className="btn-right">
                         <button className='btn-cancel'>취소</button>
-                        <button className='check'>확인</button>
+                        <button onClick = {submitProjectCreate} className='check'>확인</button>
                     </div>    
                 </div>
             </div>    
