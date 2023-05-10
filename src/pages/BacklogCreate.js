@@ -1,7 +1,52 @@
 import './BacklogCreate.css';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate } from 'react-router-dom';
+import axios from'axios';
+import GetMe from './GetMe';
+import {useEffect, useState} from 'react';
+
 
 function BacklogCreate(){
+
+    useEffect(() => {
+        GetMe();
+    }, [] );
+
+    const navigate = useNavigate();
+    const[백로그명, 백로그명변경] = useState("");
+    const[상세설명, 상세설명변경] = useState("");
+    const[Date, changeDate ] = useState("");
+
+    const backlogTitle = (e) =>{
+        백로그명변경(e.target.value);
+    }
+
+    const backlogDetail =(e) =>{
+        상세설명변경(e.target.value);
+    }
+
+    function submitBacklog(e) {
+        e.preventDefault();
+        //postBacklogCreate();
+    }
+
+    function postBacklogCreate(){
+        // axios.post('http://localhost:8000/projects',
+        // {
+        //     "title": 프로젝트명,
+        //     "assign": "관리자"
+        // }
+        // ).then(res =>{
+        //     console.log(res);
+        //     navigate("/BacklogSelect");
+        // })
+        // .catch((error) => {
+        //     console.log(error);
+        //     console.log('에러입니다');
+            
+
+        // })
+    }
+
 
    return(
     <div className = "container-all">
@@ -16,8 +61,8 @@ function BacklogCreate(){
                     <h6 className = 'text-title-2'>백로그 명*</h6>
                     <input className="input-bck-title"
                             type = "text"
-                            //value = 
-                            //onChange =  
+                            value = {백로그명}
+                            onChange =  {backlogTitle}
                         />
                 </div>    
             </div>
@@ -25,7 +70,12 @@ function BacklogCreate(){
             <div className = 'container-bck-textarea'>
                 <div className ="mb-3">
                 <label for="example-textarea" className="form-label">상세 설명</label>
-                <textarea className = "form-bck-control"></textarea>
+                <textarea className = "form-bck-control"
+                    type = "text"
+                    value = {상세설명}
+                    onChange = {backlogDetail}
+                
+                />
                 </div>
             </div>
             
@@ -38,7 +88,7 @@ function BacklogCreate(){
 
             <div className="btn-right">
                 <button className='btn-cancel'>취소</button>
-                <button className='check'>확인</button>
+                <button onClick = {submitBacklog} className='check'>확인</button>
             </div>    
         </div>
     </div>
