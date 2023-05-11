@@ -9,6 +9,8 @@ import ProjectCreate from "./pages/ProjectCreate";
 import Board from "./pages/Board";
 import Firstpage from "./pages/Firstpage";
 import ProjectSelect from './pages/ProjectSelect';
+import BacklogCreate from'./pages/BacklogCreate';
+import BacklogSelect from'./pages/BacklogSelect';
 
 function App() {
 
@@ -29,20 +31,31 @@ function App() {
         <Route path = "ProjectSelect" element = {
           <div>
             <Header/>
+            
             <ProjectSelect/>
           </div>}
         />
 
-        {/* 프로젝트 새로 만들기 */}
+        {/* 프로젝트 새로 만들기 상세 정보 넣기 */}
         <Route path = "/ProjectCreate" element={<ProjectCreate/>}/>
 
-        {/* 프로젝트 선택해서 들어갔을 때 */}
-        <Route path ="/Main" element={[
+        {/* 프로젝트 선택해서 들어갔을 때 보드창 */}
+        <Route path ="/Board" element={[
           <Header></Header>, 
           <Sidenav></Sidenav>,
           <Board></Board>
         ]} />
+
+        {/*백로그 창*/}
+        <Route path ="/BacklogSelect" element={[
+          <Header></Header>, 
+          <Sidenav></Sidenav>,
+          <BacklogSelect></BacklogSelect>
+          
+        ]} />
         
+        {/* 백로그 만들기 */}
+        <Route path = "/BacklogCreate" element={<BacklogCreate/>}/>
       </Routes>
     
   );
