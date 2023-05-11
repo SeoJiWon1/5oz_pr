@@ -14,7 +14,7 @@ function BacklogCreate(){
     const navigate = useNavigate();
     const[백로그명, 백로그명변경] = useState("");
     const[상세설명, 상세설명변경] = useState("");
-    const[Date, changeDate ] = useState("");
+    const[date, changeDate ] = useState("");
 
     const backlogTitle = (e) =>{
         백로그명변경(e.target.value);
@@ -24,33 +24,39 @@ function BacklogCreate(){
         상세설명변경(e.target.value);
     }
 
+    const handleDateChange = (e) => {
+        changeDate(e.target.value);
+    }
+
     function submitBacklog(e) {
         e.preventDefault();
-        //postBacklogCreate();
+        postBacklogCreate();
     }
 
     function postBacklogCreate(){
-        // axios.post('http://localhost:8000/projects',
-        // {
-        //     "title": 프로젝트명,
-        //     "assign": "관리자"
-        // }
-        // ).then(res =>{
-        //     console.log(res);
-        //     navigate("/BacklogSelect");
-        // })
-        // .catch((error) => {
-        //     console.log(error);
-        //     console.log('에러입니다');
+        axios.post('http://localhost:8080/backlogs',
+        {
+            "title" : 백로그명,
+            "deadline" : date,
+            "description" : 상세설명,
+            "projectSeq" : 1
+        }
+        ).then(res =>{
+            console.log(res);
+            navigate("/BacklogSelect");
+        })
+        .catch((error) => {
+            console.log(error);
+            console.log('에러입니다');
             
 
-        // })
+        })
     }
 
 
    return(
     <div className = "container-all">
-        <Link to="/Backlog" className = "link"> 백로그로 돌아가기</Link>
+        <Link to="/BacklogSelect" className = "link"> 백로그로 돌아가기</Link>
         <div className = 'container-backlog'>
             <div className = 'container-bck-header'>
                 <h3 className = 'text-title-1'>백로그 설정</h3>
@@ -69,7 +75,7 @@ function BacklogCreate(){
 
             <div className = 'container-bck-textarea'>
                 <div className ="mb-3">
-                <label for="example-textarea" className="form-label">상세 설명</label>
+                <label htmlFor="example-textarea" className="form-label">상세 설명</label>
                 <textarea className = "form-bck-control"
                     type = "text"
                     value = {상세설명}
@@ -80,9 +86,16 @@ function BacklogCreate(){
             </div>
             
             <div className = 'container-bck-enddate'>
-                <div class="mb-3">
-                    <label for="example-date" className="form-label">Date</label>
-                    <input className="form-bck-control" id="example-date" type="date" name="date"/>
+                <div className="mb-3">
+                    <label htmlFor="example-date" className="form-label">Date</label>
+                    <input 
+                        className="form-bck-control" 
+                        id="example-date" 
+                        type="date" 
+                        name="date"
+                        value = {date}
+                        onChange = {handleDateChange}
+                        />
                 </div>
             </div>
 
@@ -94,9 +107,5 @@ function BacklogCreate(){
     </div>
    )
 }
-
-
-
-
 
 export default BacklogCreate;
