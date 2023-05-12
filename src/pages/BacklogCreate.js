@@ -3,13 +3,39 @@ import {Link, useNavigate } from 'react-router-dom';
 import axios from'axios';
 import GetMe from './GetMe';
 import {useEffect, useState} from 'react';
-
+import Form from 'react-bootstrap/Form';
 
 function BacklogCreate(){
 
     useEffect(() => {
         GetMe();
     }, [] );
+
+    const [projectTitle, setProjectTitle] = useState([]);
+    const [seqCount, setSeqCount] = useState([]);
+    const [selectedValue, setSelectedValue] = useState("");
+
+    useEffect(() => {
+        async function getProjectTitle() {
+          try {
+            const accessToken = localStorage.getItem("access_token");
+            const res = await axios.get('http://localhost:8080/api/projects',
+              {
+                headers:{
+                  Authorization: `Bearer ${accessToken}`
+                },
+              });
+            setProjectTitle(res.data);
+            setSeqCount(res.data[0].seq);
+            console.log(projectTitle);
+            console.log(res.data[0].seq);
+            ///console.log(projectTitle[0].title);
+          } catch (error) {
+            console.log(error);
+          }
+        }
+        getProjectTitle();
+      }, []);
 
     const navigate = useNavigate();
     const[백로그명, 백로그명변경] = useState("");
@@ -28,6 +54,12 @@ function BacklogCreate(){
         changeDate(e.target.value);
     }
 
+    const handleProjectChange = (e) => {
+        const selectedValue = e.target.value;
+        setSelectedValue(selectedValue);
+        console.log(selectedValue);
+    }
+
     function submitBacklog(e) {
         e.preventDefault();
         postBacklogCreate();
@@ -37,9 +69,11 @@ function BacklogCreate(){
         axios.post('http://localhost:8080/backlogs',
         {
             "title" : 백로그명,
-            "deadline" : date,
             "description" : 상세설명,
-            "projectSeq" : 1
+            "deadline" : date,
+            "projectSeq" : 1,
+            "projectTitle" : selectedValue
+            
         }
         ).then(res =>{
             console.log(res);
@@ -97,6 +131,19 @@ function BacklogCreate(){
                         onChange = {handleDateChange}
                         />
                 </div>
+
+                <div className='container-bck-select'>
+                    <Form.Label>Project Select</Form.Label>
+                    <Form.Control as="select" value={selectedValue} onChange={handleProjectChange}>
+                        <option>Select Project</option>
+                        {projectTitle.map((project, index) => (
+                        <option key={project.seq} value={projectTitle[index].title}>
+                            {projectTitle[index].title}
+                        </option>
+                        ))}
+                    </Form.Control>
+                </div>
+
             </div>
 
             <div className="btn-right">
