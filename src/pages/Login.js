@@ -56,28 +56,27 @@ function Login() {
   // }
  
   return (    
-      <div className="Login-all">
-        <div className="Login-Logo">5oz</div>
-        <Form className="form" >
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email</Form.Label>
-            <Form.Control type="text" defaultValue="test1" placeholder="xxxx@ozsoftware.com" />
-            <Form.Text className="text-muted">
-              고객님의 정보는 공유되지 않습니다.
-            </Form.Text>
-          </Form.Group>
+      <div className='login-layout'>
+        <div className="login-all">
+          <div className="login-Logo">5oz</div>
+          <Form className="form" >
+            <Form.Group className="form-email" controlId="formBasicEmail">
+              <Form.Label>Email</Form.Label>
+              <Form.Control className ='form-email1' type="text" defaultValue="test1" placeholder="xxxx@ozsoftware.com" />
+            </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" defaultValue="test2"  placeholder="Password" />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="아이디 저장" />
-          </Form.Group>
-          <Button variant="primary" type="button" className="btn-log" onClick={getToken}>
-            Login
-          </Button>
-        </Form>
+            <Form.Group className="form-password" controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" defaultValue="test2"  placeholder="Password" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+              <Form.Check type="checkbox" label="아이디 저장" />
+            </Form.Group>
+            <Button variant="primary" type="button" className="btn-log" onClick={getToken}>
+              Login
+            </Button>
+          </Form>
+        </div>
       </div>
   );
 }
