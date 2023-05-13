@@ -1,18 +1,26 @@
-.Login-all{
-    background-color: rgb(220, 233, 245);
-    width: 500px;
-    height: 500px;
-    margin-left:auto;
-    margin-right:auto;
-    margin-top: 90px;
-    border:solid gainsboro;
-    border-radius: 30px;
-    
-
+.login-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.login-all{
+    background-color: rgb(220, 233, 245);
+    width: 500px;
+    height: 450px;
+    margin-top: 6%;
+    border:solid gainsboro;
+    border-radius: 30px;
 
-.Login-Logo{
+     /* 미디어 쿼리 추가 */
+  @media screen and (max-width: 768px) {
+    width: 350px;
+    height: 400px;
+    margin-top:30%;
+  }
+}
+
+.login-Logo{
     font-size: 60px;
     text-align: center;
     height: 90px;
@@ -23,7 +31,7 @@
 
 
 .form {
-    width: 300px;
+    width: 50%;
     margin-left : auto;
     margin-right: auto;
     margin-top: 40px;
