@@ -6,9 +6,11 @@
 
 .login-all{
     background-color: rgb(220, 233, 245);
-    width: 500px;
-    height: 450px;
+    margin-left:auto;
+    margin-right: auto;
     margin-top: 6%;
+    width:400px;
+    height: 450px;
     border:solid gainsboro;
     border-radius: 30px;
 
