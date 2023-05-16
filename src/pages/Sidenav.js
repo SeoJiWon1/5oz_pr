@@ -24,7 +24,7 @@ function Sidenav() {
                         <a className='sidenav-icon' href ='/BacklogSelect'><HiQueueList></HiQueueList>Backlog</a>
                     </li>
                     <li className='sidenav-list'>
-                        <a className='sidenav-icon' href ='/'><BiTask></BiTask>Task</a>
+                        <a className='sidenav-icon' href ='/TaskSelect'><BiTask></BiTask>Task</a>
                     </li>
                 </ul>
         </div>      
