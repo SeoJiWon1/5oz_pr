@@ -94,23 +94,23 @@ function BacklogCreate(){
 
 
    return(
-    <div className = "backlogcreate-all">
+    <div className = "container-all">
         <Link to="/BacklogSelect" className = "link"> 백로그로 돌아가기</Link>
         <div className = 'container-backlog'>
             <div className = 'container-bck-header'>
                 <h3 className = 'text-title-1'>백로그 설정</h3>
             </div>
-            
+
             <div className='container-bck-select'>
-                    <Form.Label>Project Select</Form.Label>
-                    <Form.Control as="select" value={selectedValue} onChange={handleProjectChange}>
-                        <option>Select Project</option>
+                <Form.Label>Project Select</Form.Label>
+                <Form.Control as="select" value={selectedValue} onChange={handleProjectChange}>
+                    <option>Select Project</option>
                         {projectTitle.map((project, index) => (
                         <option key={project.seq} value={projectTitle[index].title}>
-                            {projectTitle[index].title}
-                        </option>
+                        {projectTitle[index].title}
+                    </option>
                         ))}
-                    </Form.Control>
+                </Form.Control>
             </div>
 
             <div className = 'container-bck-title'>
@@ -148,6 +148,7 @@ function BacklogCreate(){
                         onChange = {handleDateChange}
                         />
                 </div>
+
             </div>
 
             <div className="btn-right">
