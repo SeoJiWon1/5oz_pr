@@ -1,6 +1,13 @@
 .slidebar-all {
-    margin-top: 100px;
-    margin-left:auto;
-    margin-right:auto;
-    width: 900px;
+    margin-top: 200px;
+    width: 90%;
+    max-width: 900px; /* 최대 너비 900px */
+    min-width: 300px; /* 최소 너비 300px */
+    margin: 0 auto; /* 가운데 정렬 */
+}
+
+.img-slidebar{
+    margin-top: 70px;
+    width: 800px;
+    height: 500px;
 }

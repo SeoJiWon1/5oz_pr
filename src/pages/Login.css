@@ -1,37 +1,85 @@
-.Login-all{
+/* .login-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.login-all{
     background-color: rgb(220, 233, 245);
-    width: 500px;
-    height: 500px;
     margin-left:auto;
-    margin-right:auto;
-    margin-top: 90px;
+    margin-right: auto;
+    margin-top: 8%;
+    width:800px;
+    height: 450px;
     border:solid gainsboro;
     border-radius: 30px;
     
 
+     /* 미디어 쿼리 추가 */
+  @media screen and (max-width: 768px) {
+    width: 350px;
+    height: 400px;
+    margin-top:30%;
+  }
 }
 
-
-.Login-Logo{
+.login-logo{
     font-size: 60px;
-    text-align: center;
     height: 90px;
     color: rgba(15, 170, 241, 0.863);
     margin-top: 35px;
+    margin-left:15%;
     
 }
 
 
 .form {
-    width: 300px;
-    margin-left : auto;
-    margin-right: auto;
+    width: 25%;
     margin-top: 40px;
+    margin-left: 8%;
+    float:left;
 }
 
 
 
 .btn-log {
+    margin-left: 35%;
+    margin-top: 20%;
     background-color: rgb(80, 183, 252);
     border-color:rgb(80, 183, 252);
 }
+
+.form-img{
+    
+    float: left;
+    margin-left:3%;
+}
+
+.img-sea{
+    border-radius: 0 30px 30px 0;
+    width:455.9px;
+    height:450px;
+    margin-top: -127px;
+    margin-left: 53px;
+}
+
+@media screen and (max-width: 768px) {
+    .img-sea{
+        display:none;
+    }
+    .login-logo{
+        margin-left:36%;
+        margin-top: 7%;
+    }
+
+    .form{
+        margin-left:23%;
+        margin-top:8%;
+        width:180px;
+    }
+    
+    .btn-log{
+        margin-left:33%;
+        margin-top:20%;
+    }
+  }

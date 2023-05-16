@@ -14,17 +14,17 @@ function Header() {
   return (
     <Nav className ="nav-all">
       <Nav.Item>
-        <Nav.Link href="/" className = "logo"><FaHatWizard></FaHatWizard> 5Oz Software</Nav.Link>
+        <Nav.Link href="/" className = "logo"><FaHatWizard></FaHatWizard> 5Oz</Nav.Link>
       </Nav.Item>
       <Nav className='nav-type'>
         <Nav.Item>
-          <Nav.Link eventKey="link-1">내 작업</Nav.Link>
+          <Nav.Link className='nav-type-text'>내 작업</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-2">프로젝트</Nav.Link>
+          <Nav.Link className='nav-type-text'>프로젝트</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-3">팀</Nav.Link>
+          <Nav.Link className='nav-type-text'>팀</Nav.Link>
         </Nav.Item>
         
 
@@ -32,26 +32,26 @@ function Header() {
           <Nav.Item className = "nav-icon">
             <BsFillBellFill/>
           </Nav.Item>
-          <Nav.Item >
-            <Nav.Link eventKey="link-4"> 알림</Nav.Link>
+          {/* <Nav.Item >
+            <Nav.Link> 알림</Nav.Link>
           </Nav.Item>  
           <Nav.Item className = "nav-icon">
             <BsFillGearFill/>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="link-5">설정</Nav.Link>
+            <Nav.Link>설정</Nav.Link>
           </Nav.Item>
           <Nav.Item className = "nav-icon">
             <FaUser/>
-          </Nav.Item>
+          </Nav.Item> */}
           <Nav.Item>
             <Nav.Item >
-              <div onClick={()=> {modal === true ? setModal(false) : setModal(true)}}>
+              {/* <div onClick={()=> {modal === true ? setModal(false) : setModal(true)}}>
                 계정
-              </div>
-              <div>
+              </div> */}
+              {/* <div>
                 {modal === true ? <Modal/> : null}
-              </div>
+              </div> */}
             </Nav.Item>
           </Nav.Item>
         </Nav>

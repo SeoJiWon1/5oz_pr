@@ -1,6 +1,7 @@
 import './Sidenav.css';
-import { FiPlusCircle } from "react-icons/fi";
-import { HiFolderPlus, HiQueueList, HiArrowLongLeft} from "react-icons/hi2";
+import { HiQueueList, HiArrowLongLeft} from "react-icons/hi2";
+import { AiFillProject } from "react-icons/ai";
+import { BiTask } from "react-icons/bi";
 import {useState} from "react";
 
 function Sidenav() {
@@ -15,15 +16,15 @@ function Sidenav() {
         <div className={`sidenav ${사이드바 ? "" : "close"}`}>
                 <ul>
                     <li className='sidenav-list'>
-                        <a className='sidenav-icon' href ='/'><FiPlusCircle></FiPlusCircle>채널</a>
+                        <a className='sidenav-icon' href ='/ProjectSelect'><AiFillProject></AiFillProject>Project</a>
                         <HiArrowLongLeft className='sidenav-arrow' 
                         onClick={SideNavChange}/>
                     </li>
                     <li className='sidenav-list'>
-                        <a className='sidenav-icon' href ='/'><HiFolderPlus></HiFolderPlus>만들기</a>
+                        <a className='sidenav-icon' href ='/BacklogSelect'><HiQueueList></HiQueueList>Backlog</a>
                     </li>
                     <li className='sidenav-list'>
-                        <a className='sidenav-icon' href ='/'><HiQueueList></HiQueueList>백로그</a>
+                        <a className='sidenav-icon' href ='/'><BiTask></BiTask>Task</a>
                     </li>
                 </ul>
         </div>      

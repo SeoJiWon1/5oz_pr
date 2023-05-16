@@ -8,7 +8,18 @@ import Sidenav from "./pages/Sidenav";
 import ProjectCreate from "./pages/ProjectCreate";
 import Board from "./pages/Board";
 import Firstpage from "./pages/Firstpage";
+import BacklogSelect from './pages/BacklogSelect';
+import BacklogCreate from './pages/BacklogCreate';
 import ProjectSelect from './pages/ProjectSelect';
+import ProjectView from './pages/ProjectView';
+import ProjectEdit from './pages/ProjectEdit';
+import TaskSelect from './pages/TaskSelect';
+import TaskView from './pages/TaskView';
+import BacklogView from './pages/BacklogView';
+import BacklogEdit from './pages/BacklogEdit';
+import TaskCreate from './pages/TaskCreate';
+import TaskEdit from './pages/TaskEdit';
+
 
 function App() {
 
@@ -42,7 +53,29 @@ function App() {
           <Sidenav></Sidenav>,
           <Board></Board>
         ]} />
+      {/* 프로젝트 내용 확인 */}
+      
         
+      <Route path = "/BacklogSelect" element={<BacklogSelect/>}/>
+      
+      <Route path = "/BacklogCreate" element={<BacklogCreate/>}/>
+
+      <Route path = "/ProjectView" element={<ProjectView/>}/>
+
+      <Route path = "/ProjectEdit" element={<ProjectEdit/>}/>
+      
+      <Route path = "/TaskSelect" element={<TaskSelect/>}/>
+
+      <Route path = "/TaskView" element={<TaskView/>}/>
+
+      <Route path = "/TaskCreate" element={<TaskCreate/>}/>
+
+      <Route path = "/TaskEdit" element={<TaskEdit/>}/>
+
+      <Route path = "/BacklogView" element={<BacklogView/>}/>
+      
+      <Route path = "/BacklogEdit" element={<BacklogEdit/>}/>
+      
       </Routes>
     
   );

@@ -1,12 +1,17 @@
-import './BacklogCreate.css';
-import {Link, useNavigate } from 'react-router-dom';
+import './ProjectCreate.css';
+import {Link, useNavigate, useLocation } from 'react-router-dom';
+import { FcBrokenLink } from "react-icons/fc";
+import { FcConferenceCall } from "react-icons/fc";
+import {useState, useEffect} from 'react';
 import axios from'axios';
 import GetMe from './GetMe';
-import {useEffect, useState} from 'react';
 import Form from 'react-bootstrap/Form';
 
-function BacklogCreate(){
-
+function BacklogEdit(){
+    //const navigate = useNavigate();
+    const location = useLocation();
+    // const seq = location.state.state;
+    
     useEffect(() => {
         GetMe();
     }, [] );
@@ -14,33 +19,40 @@ function BacklogCreate(){
     const [projectTitle, setProjectTitle] = useState([]);
     const [seqCount, setSeqCount] = useState([]);
     const [selectedValue, setSelectedValue] = useState("");
-
-    useEffect(() => {
-        async function getProjectTitle() {
-          try {
-            const accessToken = localStorage.getItem("access_token");
-            const res = await axios.get('http://localhost:8080/api/projects',
-              {
-                headers:{
-                  Authorization: `Bearer ${accessToken}`
-                },
-              });
-            setProjectTitle(res.data);
-            setSeqCount(res.data[0].seq);
-            console.log(projectTitle);
-            console.log(res.data[0].seq);
-            ///console.log(projectTitle[0].title);
-          } catch (error) {
-            console.log(error);
-          }
-        }
-        getProjectTitle();
-      }, []);
-
     const navigate = useNavigate();
     const[백로그명, 백로그명변경] = useState("");
     const[상세설명, 상세설명변경] = useState("");
     const[date, changeDate ] = useState("");
+    const[프로젝트명, 프로젝트명변경] = useState("");
+
+    useEffect(()=>{
+      async function getBacklog() {
+        console.log(location.state.seq);
+          try {
+            const accessToken = localStorage.getItem("access_token");
+            const res = await axios.get('http://localhost:8080/api/backlogs/view/'+location.state.seq,
+              {
+                headers:{
+                      Authorization: `Bearer ${accessToken}`
+                },
+              });
+              console.log(location.state.seq);
+              console.log(res.data);
+            setProjectTitle(res.data);
+            setSeqCount(res.data.seq);
+            // console.log(projectTitle);
+            console.log(res.data.deadline);
+            백로그명변경(res.data.title);
+            상세설명변경(res.data.description);
+            changeDate(res.data.deadline);
+            프로젝트명변경(res.data.projectTitle);
+          } catch (error) {
+            console.log(error);
+          }
+        }
+        getBacklog();
+      }, [] );
+          
 
     const backlogTitle = (e) =>{
         백로그명변경(e.target.value);
@@ -62,24 +74,23 @@ function BacklogCreate(){
 
     function submitBacklog(e) {
         e.preventDefault();
-        postBacklogCreate();
+        putBacklogUpdate();
     }
 
-    function postBacklogCreate(){
+    function putBacklogUpdate(){
         const accessToken = localStorage.getItem("access_token");
-        axios.post('http://localhost:8080/api/backlogs',
+        axios.put('http://localhost:8080/api/backlogs/'+location.state.seq,
         {
             "title" : 백로그명,
             "description" : 상세설명,
             "deadline" : date,
-            "projectSeq" : 1,
-            "projectTitle" : selectedValue
             
         },
         {
             headers:{
               Authorization: `Bearer ${accessToken}`
-            }}
+            }
+          }
         ).then(res =>{
             console.log(res);
             navigate("/BacklogSelect");
@@ -92,25 +103,12 @@ function BacklogCreate(){
         })
     }
 
-
    return(
-    <div className = "backlogcreate-all">
+    <div className = "container-all">
         <Link to="/BacklogSelect" className = "link"> 백로그로 돌아가기</Link>
         <div className = 'container-backlog'>
             <div className = 'container-bck-header'>
-                <h3 className = 'text-title-1'>백로그 설정</h3>
-            </div>
-            
-            <div className='container-bck-select'>
-                    <Form.Label>Project Select</Form.Label>
-                    <Form.Control as="select" value={selectedValue} onChange={handleProjectChange}>
-                        <option>Select Project</option>
-                        {projectTitle.map((project, index) => (
-                        <option key={project.seq} value={projectTitle[index].title}>
-                            {projectTitle[index].title}
-                        </option>
-                        ))}
-                    </Form.Control>
+                <h3 className = 'text-title-1'>백로그 수정하기</h3>
             </div>
 
             <div className = 'container-bck-title'>
@@ -119,8 +117,8 @@ function BacklogCreate(){
                     <input className="input-bck-title"
                             type = "text"
                             value = {백로그명}
-                            onChange =  {backlogTitle}
-                        />
+                            onChange = {backlogTitle}
+                    />
                 </div>    
             </div>
 
@@ -148,6 +146,11 @@ function BacklogCreate(){
                         onChange = {handleDateChange}
                         />
                 </div>
+
+                <div className='container-bck-select'>
+                {프로젝트명}
+                </div>
+
             </div>
 
             <div className="btn-right">
@@ -159,4 +162,4 @@ function BacklogCreate(){
    )
 }
 
-export default BacklogCreate;
+export default BacklogEdit;

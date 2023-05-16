@@ -1,7 +1,9 @@
 .nav-all {
+    background-color: rgb(255, 255, 255);
     border: solid 0.5px gainsboro;
     max-height: 100px;
-    height: 50px;
+    height: 70px;
+
 }
 .nav-logo {
     display: flex;
@@ -10,14 +12,21 @@
 
 }
 .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 2px;
-    font-size : 18px;
+    font-size : 30px;
     color:rgb(0, 0, 0);
 }
 
 .nav-setting {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 27px;
     position: absolute;
-    right:0;
+    right:2%;
     top:0;
     z-index:1;
     margin-top:6px;
@@ -34,9 +43,17 @@
 }
 
 .nav-type {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top:8px;
-    font-size :13px;
+    font-size :18px;
     font-weight: lighter;
+    color: rgb(0, 0, 0);
+}
+
+.nav-type-text{
+    color: rgb(0, 0, 0);
 }
 
 .modal-logout {

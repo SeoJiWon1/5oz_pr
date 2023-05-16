@@ -8,7 +8,7 @@ function Board(){
     <div className='board'>
         <div className='title'>
             <div className='l_title'>
-                <Link to='/Main'>프로젝트 선택</Link>
+                <Link to='/ProjectSelect'>프로젝트 선택</Link>
                 <h2>프로젝트명</h2>
                 <p>설명?</p>
                 <div className="input-group mb-3">

@@ -1,5 +1,5 @@
 .sidenav {
-    width: 220px;
+    width: 120px;
     height: 100vh;
     position: fixed;
     padding: 0px;
@@ -32,7 +32,9 @@
 }
 
 .sidenav-list {
-    padding: 5px;
+    margin-top: 50%;
+    margin-left: 1%;
+    padding: 1%;
     font-size: 17px;
 }
 
@@ -55,7 +57,7 @@
 .sidenav-arrow {
     position: absolute;
     right:-14px;
-    top: 16px;
+    top: 6%;
     cursor: pointer;
     padding: 5px;
     background-color: rgb(180, 180, 180);
