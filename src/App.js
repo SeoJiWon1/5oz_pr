@@ -6,19 +6,19 @@ import Slidebar from './pages/Slidebar.js';
 import {Routes, Route, Link} from 'react-router-dom';
 import Sidenav from "./pages/Sidenav";
 import ProjectCreate from "./pages/ProjectCreate";
+import ProjectSelect from './pages/ProjectSelect';
+import ProjectView from './pages/ProjectView';
+import ProjectEdit from './pages/ProjectEdit';
 import Board from "./pages/Board";
 import Firstpage from "./pages/Firstpage";
 import BacklogSelect from './pages/BacklogSelect';
 import BacklogCreate from './pages/BacklogCreate';
-import ProjectSelect from './pages/ProjectSelect';
-import ProjectView from './pages/ProjectView';
-import ProjectEdit from './pages/ProjectEdit';
-import TaskSelect from './pages/TaskSelect';
-import TaskView from './pages/TaskView';
 import BacklogView from './pages/BacklogView';
 import BacklogEdit from './pages/BacklogEdit';
+import TaskSelect from './pages/TaskSelect';
 import TaskCreate from './pages/TaskCreate';
-import TaskEdit from './pages/TaskEdit';
+import TaskView from './pages/TaskView';
+// import TaskEdit from './pages/TaskEdit';
 
 
 function App() {
@@ -26,12 +26,10 @@ function App() {
   return (
       <Routes>
         {/* 첫 시작 화면 */}
-        <Route path = "/" element ={
-          <div>
-        <Firstpage></Firstpage>
-        <Slidebar></Slidebar>          
-          </div>
-        }/>
+        <Route path = "/" element ={[
+            <Firstpage></Firstpage>,
+            // <Slidebar></Slidebar>          
+          ]}/>
 
         {/* 로그인 페이지 */}
         <Route path ="/Login" element={<Login />} />
@@ -40,6 +38,7 @@ function App() {
         <Route path = "ProjectSelect" element = {
           <div>
             <Header/>
+            <Sidenav/>
             <ProjectSelect/>
           </div>}
         />
@@ -56,7 +55,11 @@ function App() {
       {/* 프로젝트 내용 확인 */}
       
         
-      <Route path = "/BacklogSelect" element={<BacklogSelect/>}/>
+      <Route path = "/BacklogSelect" element={[
+        <Header/>,
+        <Sidenav/>,
+        <BacklogSelect/>
+        ]}/>
       
       <Route path = "/BacklogCreate" element={<BacklogCreate/>}/>
 
@@ -68,13 +71,11 @@ function App() {
 
       <Route path = "/TaskView" element={<TaskView/>}/>
 
-      <Route path = "/TaskCreate" element={<TaskCreate/>}/>
-
-      <Route path = "/TaskEdit" element={<TaskEdit/>}/>
-
       <Route path = "/BacklogView" element={<BacklogView/>}/>
       
       <Route path = "/BacklogEdit" element={<BacklogEdit/>}/>
+
+      <Route path = "/TaskCreate" element={<TaskCreate/>}/>
       
       </Routes>
     
