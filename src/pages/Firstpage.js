@@ -1,15 +1,20 @@
 import './Firstpage.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
-import React, { useState } from "react";
-import { FaBars } from 'react-icons/fa';
+import React from "react";
+
 
 
 function Firstpage() {
   return (
     <div className="header-all">
       <div className='header-home'>
-        <Link to="/" className = 'header-home-text'>5OzSoftware</Link>
+      <Link to="/" className="header-home-text">
+        <span className="first-line">5Oz</span>
+        <br />
+        <span className="second-line">Software</span>
+      </Link>
+
       </div>
         <div className="custom-shape-divider-top-1684120266">
           <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
