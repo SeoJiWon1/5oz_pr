@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 //import { useState } from "react";
 import axios from'axios';
 import { useNavigate } from "react-router-dom";
-import Sea from './Sea.jpg';
+import login from './login.png';
 //import refreshToken from "../path/to/utils";
 //import { setLoggedIn } from "../store/authSlice";
 // import { useDispatch } from "react-redux";
@@ -73,12 +73,15 @@ function Login() {
             <Button variant="primary" type="button" className="btn-log" onClick={getToken}>
               Login
             </Button>
+            <Button className='btn-signup'>
+              SignUp
+            </Button>
           </Form>
 
           <div className = "form-img">
           <img
             className="img-sea"
-            src={Sea}
+            src={login}
             alt="Second slide"
           />
           </div>
