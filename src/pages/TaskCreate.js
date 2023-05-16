@@ -151,8 +151,8 @@ function TaskCreate() {
       )
       .then((res) => {
         console.log(res);
-        postTaskMail();
-        //navigate("/TaskSelect");
+        // postTaskMail();
+        navigate("/TaskSelect");
       })
       .catch((error) => {
         console.log(error);
@@ -240,7 +240,7 @@ function TaskCreate() {
             <label htmlFor="example-textarea" className="form-label">
               상세 설명
             </label>
-            <textarea
+ 00           <textarea
               className="form-bck-control"
               type="text"
               value={상세설명}
