@@ -4,7 +4,7 @@
     position: fixed;
     padding: 0px;
     /* 상하, 좌우 */
-    border: solid 0.7px gainsboro;
+    box-shadow: 1px 1px 10px #e4e6ea;
     box-sizing: border-box;
     transition: width 0.2s ease-in-out;
 }
