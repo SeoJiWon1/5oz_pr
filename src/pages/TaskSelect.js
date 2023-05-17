@@ -1,4 +1,4 @@
-import "./ProjectSelect.css";
+import "./TaskSelect.css";
 import axios from "axios";
 import { Await, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -41,8 +41,8 @@ function TaskSelect() {
   }
 
   return (
-    <div>
-      <div className="header-container">
+    <div className="taskselect-container">
+      <div className="taskselect-header-container">
         <div className="header-text">테스크</div>
         <button className="header-btncrt" onClick={navigateTaskCreate}>
           테스크 만들기
@@ -50,32 +50,21 @@ function TaskSelect() {
       </div>
       <div>
       <div className="mt-2">
-        <h5 className="m-0 pb-2">
-          <a
-            className="text-dark"
-            data-bs-toggle="collapse"
-            href="#todayTasks"
-            role="button"
-            aria-expanded="false"
-            aria-controls="todayTasks"
-          >
-            <i className="uil uil-angle-down font-18"></i>백로그명
-          </a>
-        </h5>
+
+        <div className="backspace"></div>
 
         <div className="collapse show" id="todayTasks">
           <div className="card mb-0">
             <div className="card-body">
             {Tasks && Tasks.map((Tasks, index) =>(
               <div className="row justify-content-sm-between" key={Tasks.seq} data-seq={Tasks.seq} onClick={handleClick}>
+
+                    
+
                 <div className="col-sm-6 mb-2 mb-sm-0">
                   <div className="form-check">
-                    <h5>{Tasks.seq}</h5>
-                  </div>
-                </div>
-                <div className="col-sm-6 mb-2 mb-sm-0">
-                  <div className="form-check">
-                    <h5>{Tasks.title}</h5>
+                  <span className="taskseq">{Tasks.seq}</span>
+                  <h5 className="tasktitle">{Tasks.title}</h5>
                   </div>
                 </div>
                 

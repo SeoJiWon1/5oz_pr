@@ -1,4 +1,4 @@
-import "./BacklogCreate.css";
+import "./TaskEdit.css";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import GetMe from "./GetMe";
@@ -25,7 +25,7 @@ function TaskEdit() {
   const [selectedStoryProgress, setSelectedStoryProgress] = useState("");
   const list = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
   const navigate = useNavigate();
-  const [테스크명, 테스크명변경] = useState("");
+  const [태스크명, 태스크명변경] = useState("");
   const [상세설명, 상세설명변경] = useState("");
   const [date, changeDate] = useState("");
 
@@ -43,7 +43,7 @@ function TaskEdit() {
         // setManager(res.data.manager);
         // selectedPresenter(res.data.presenter);
         // list(res.data.storyProgress);
-        테스크명변경(res.data.title);
+        태스크명변경(res.data.title);
         상세설명변경(res.data.description);
         changeDate(res.data.deadline);
       } catch (error) {
@@ -76,7 +76,7 @@ function TaskEdit() {
 
 
   const backlogTitle = (e) => {
-    테스크명변경(e.target.value);
+    태스크명변경(e.target.value);
   };
 
   const backlogDetail = (e) => {
@@ -116,7 +116,7 @@ function TaskEdit() {
       .put(
         "http://localhost:8080/tasks/"+location.state.seq,
         {
-          title: 테스크명,
+          title: 태스크명,
           storyProgress: selectedStoryProgress,
           description: 상세설명,
           presenter: selectedPresenter,
@@ -166,9 +166,9 @@ function TaskEdit() {
       <Link to="/TaskSelect" className="link">
         태스크로 돌아가기
       </Link>
-      <div className="container-backlog">
-        <div className="container-bck-header">
-          <h3 className="text-title-1">테스크 설정</h3>
+      <div className="container-tasks">
+        <div className="container-task-header">
+          <h3 className="text-title-1">태스크 설정</h3>
         </div>
 
         {/* <div className="backlogselect-card-content">
@@ -178,25 +178,25 @@ function TaskEdit() {
             <p>백로그명: {task.backlogEntity.title}</p>
           </div>  */}
 
-        <div className="container-bck-title">
-          <div className="container-bck-title-a">
+        <div className="container-task-title">
+          <div className="container-task-title-a">
             <h6 className="text-title-2">태스크 명*</h6>
             <input
-              className="input-bck-title"
+              className="input-task-title"
               type="text"
-              value={테스크명}
+              value={태스크명}
               onChange={backlogTitle}
             />
           </div>
         </div>
 
-        <div className="container-bck-textarea">
+        <div className="container-task-textarea">
           <div className="mb-3">
             <label htmlFor="example-textarea" className="form-label">
               상세 설명
             </label>
             <textarea
-              className="form-bck-control"
+              className="form-task-control"
               type="text"
               value={상세설명}
               onChange={backlogDetail}
@@ -204,7 +204,7 @@ function TaskEdit() {
           </div>
         </div>
 
-        <div className="container-bck-select">
+        <div className="container-task-select">
           <Form.Label>보고자 선택</Form.Label>
           <Form.Control
             as="select"
@@ -220,7 +220,7 @@ function TaskEdit() {
           </Form.Control>
         </div>
 
-        <div className="container-bck-select">
+        <div className="container-task-select">
           <Form.Label>관리자 선택</Form.Label>
           <Form.Control
             as="select"
@@ -236,7 +236,7 @@ function TaskEdit() {
           </Form.Control>
         </div>
 
-        <div className="container-bck-select">
+        <div className="container-task-select">
           <Form.Label>스토리 진행률</Form.Label>
           <Form.Control
             as="select"
@@ -252,13 +252,13 @@ function TaskEdit() {
           </Form.Control>
         </div>
 
-        <div className="container-bck-enddate">
+        <div className="container-task-enddate">
           <div className="mb-3">
             <label htmlFor="example-date" className="form-label">
-              Date
+              종료 일자
             </label>
             <input
-              className="form-bck-control"
+              className="form-task-control"
               id="example-date"
               type="date"
               name="date"

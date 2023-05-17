@@ -1,0 +1,69 @@
+.container-taskss{
+    margin-top: 3%;
+    border: solid 0.3px rgb(236, 234, 234);
+    border-radius: 10px;
+    box-shadow: 3px 3px 70px #e4e6ea;
+    position: absolute;
+    top: 43.5%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    width: 530px;
+    height: 820px;   
+    margin-left: 20%;
+}
+
+.container-task-header{
+    /* background-color: aqua; */
+    width: 530px;
+    height: 70px;
+    display: flex;
+    align-items: center; /* 세로 중앙 정렬 */
+}
+
+.text-title-1{
+    margin-left: 4%;
+    
+    
+}
+
+.container-task-title{
+    /* background-color: red; */
+    width:530px;
+    height: 80px;
+}
+
+.container-task-title-a{
+    margin-left:20px;
+}
+
+.input-task-title{
+    border: solid 3px gainsboro;
+    width: 200px;
+    height: 35px;
+    border-radius: 5px;
+}
+
+.container-task-textarea{
+    /* background-color: blue; */
+    width: 530px;
+    height: 150px;
+    
+}
+
+.form-task-control{
+    width: 490px;
+    height: 80px;
+    border: solid 1px grey;
+    border-radius: 3px;
+    
+}
+
+.container-task-enddate{
+    /* background-color: rgb(255, 255, 255); */
+    width: 530px;
+    height: 165px;
+}
+
+.mb-3{
+    margin-left: 20px;
+}

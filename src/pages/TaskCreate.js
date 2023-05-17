@@ -1,4 +1,4 @@
-import "./BacklogCreate.css";
+import "./TaskCreate.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import GetMe from "./GetMe";
@@ -186,8 +186,8 @@ function TaskCreate() {
       <Link to="/TaskSelect" className="link">
         테스크로 돌아가기
       </Link>
-      <div className="container-backlog">
-        <div className="container-bck-header">
+      <div className="container-taskss">
+        <div className="container-task-header">
           <h3 className="text-title-1">테스크 설정</h3>
         </div>
 
@@ -223,11 +223,11 @@ function TaskCreate() {
           </Form.Control>
         </div>
 
-        <div className="container-bck-title">
-          <div className="container-bck-title-a">
+        <div className="container-task-title">
+          <div className="container-task-title-a">
             <h6 className="text-title-2">테스크 명*</h6>
             <input
-              className="input-bck-title"
+              className="input-task-title"
               type="text"
               value={테스크명}
               onChange={backlogTitle}
@@ -235,12 +235,12 @@ function TaskCreate() {
           </div>
         </div>
 
-        <div className="container-bck-textarea">
+        <div className="container-task-textarea">
           <div className="mb-3">
             <label htmlFor="example-textarea" className="form-label">
               상세 설명
             </label>
- 00           <textarea
+            <textarea
               className="form-bck-control"
               type="text"
               value={상세설명}
@@ -249,8 +249,8 @@ function TaskCreate() {
           </div>
         </div>
 
-        <div className="container-bck-select">
-          <Form.Label>보고자 선택</Form.Label>
+        <div className="container-task-select">
+          <Form.Label>담당자 선택</Form.Label>
           <Form.Control
             as="select"
             value={selectedPresenter}
@@ -265,7 +265,7 @@ function TaskCreate() {
           </Form.Control>
         </div>
 
-        <div className="container-bck-select">
+        <div className="container-task-select">
           <Form.Label>관리자 선택</Form.Label>
           <Form.Control
             as="select"
@@ -281,7 +281,7 @@ function TaskCreate() {
           </Form.Control>
         </div>
 
-        <div className="container-bck-select">
+        <div className="container-task-select">
           <Form.Label>스토리 진행률</Form.Label>
           <Form.Control
             as="select"
@@ -297,10 +297,10 @@ function TaskCreate() {
           </Form.Control>
         </div>
 
-        <div className="container-bck-enddate">
+        <div className="container-task-enddate">
           <div className="mb-3">
             <label htmlFor="example-date" className="form-label">
-              Date
+              종료 일자
             </label>
             <input
               className="form-bck-control"
