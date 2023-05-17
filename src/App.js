@@ -9,7 +9,6 @@ import ProjectCreate from "./pages/ProjectCreate";
 import ProjectSelect from './pages/ProjectSelect';
 import ProjectView from './pages/ProjectView';
 import ProjectEdit from './pages/ProjectEdit';
-import Board from "./pages/Board";
 import Firstpage from "./pages/Firstpage";
 import BacklogSelect from './pages/BacklogSelect';
 import BacklogCreate from './pages/BacklogCreate';
@@ -18,13 +17,14 @@ import BacklogEdit from './pages/BacklogEdit';
 import TaskSelect from './pages/TaskSelect';
 import TaskCreate from './pages/TaskCreate';
 import TaskView from './pages/TaskView';
-// import TaskEdit from './pages/TaskEdit';
+import TaskEdit from './pages/TaskEdit';
 
 
 function App() {
 
   return (
       <Routes>
+
         {/* 첫 시작 화면 */}
         <Route path = "/" element ={[
             <Firstpage></Firstpage>,
@@ -34,48 +34,51 @@ function App() {
         {/* 로그인 페이지 */}
         <Route path ="/Login" element={<Login />} />
 
-        {/* 로그인 했을 때 프로젝트 선택창 */}
-        <Route path = "ProjectSelect" element = {
-          <div>
-            <Header/>
-            <Sidenav/>
-            <ProjectSelect/>
-          </div>}
+        {/* 로그인 했을 때 프로젝트 선택 */}
+        <Route path = "ProjectSelect" element = {[
+            <Header/>,
+            <Sidenav/>,
+            <ProjectSelect/>]}
         />
 
-        {/* 프로젝트 새로 만들기 */}
+        {/* 프로젝트 만들기 */}
         <Route path = "/ProjectCreate" element={<ProjectCreate/>}/>
 
-        {/* 프로젝트 선택해서 들어갔을 때 */}
-        <Route path ="/Main" element={[
-          <Header></Header>, 
-          <Sidenav></Sidenav>,
-          <Board></Board>
-        ]} />
-      {/* 프로젝트 내용 확인 */}
+        {/* 프로젝트 상세 사항 */}
+        <Route path = "/ProjectView" element={<ProjectView/>}/>
+
+        {/* 프로젝트 명 수정 */}
+        <Route path = "/ProjectEdit" element={<ProjectEdit/>}/>
+
+        {/* 백로그 선택 */}        
+        <Route path = "/BacklogSelect" element={[
+          <Header/>,
+          <Sidenav/>,
+          <BacklogSelect/>
+          ]}/>
+          
+        {/* 백로그 만들기  */}
+        <Route path = "/BacklogCreate" element={<BacklogCreate/>}/>
+
+        {/* 백로그 창 보기 */}
+        <Route path = "/BacklogView" element={<BacklogView/>}/>
       
-        
-      <Route path = "/BacklogSelect" element={[
-        <Header/>,
-        <Sidenav/>,
-        <BacklogSelect/>
-        ]}/>
+        {/* 백로그 수정 */}
+        <Route path = "/BacklogEdit" element={<BacklogEdit/>}/>
       
-      <Route path = "/BacklogCreate" element={<BacklogCreate/>}/>
+        {/* 테스크 선택 */}
+        <Route path = "/TaskSelect" element={[<Header/>,
+                                            <Sidenav/>,
+                                            <TaskSelect/>
+                                            ]}/>
 
-      <Route path = "/ProjectView" element={<ProjectView/>}/>
+        {/* 테스크 창  */}
+        <Route path = "/TaskCreate" element={<TaskCreate/>}/>
 
-      <Route path = "/ProjectEdit" element={<ProjectEdit/>}/>
-      
-      <Route path = "/TaskSelect" element={<TaskSelect/>}/>
+        {/* 테스크 창 보기 */}
+        <Route path = "/TaskView" element={<TaskView/>}/>
 
-      <Route path = "/TaskView" element={<TaskView/>}/>
 
-      <Route path = "/BacklogView" element={<BacklogView/>}/>
-      
-      <Route path = "/BacklogEdit" element={<BacklogEdit/>}/>
-
-      <Route path = "/TaskCreate" element={<TaskCreate/>}/>
       
       </Routes>
     
