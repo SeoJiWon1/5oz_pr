@@ -80,7 +80,7 @@ function Login() {
 
           <div className = "form-img">
           <img
-            className="img-sea"
+            className="img-login"
             src={login}
             alt="Second slide"
           />

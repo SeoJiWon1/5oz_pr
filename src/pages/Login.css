@@ -1,14 +1,17 @@
-/* .login-layout {
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@1,700&display=swap');
+
+.login-layout {
     display: flex;
     justify-content: center;
+    background-color: #f1efe9;
+    height: 100vh;
     align-items: center;
-} */
+}
 
 .login-all{
-    background-color: rgb(220, 233, 245);
+    background-color: #d8edf5;
     margin-left:auto;
     margin-right: auto;
-    margin-top: 8%;
     width:800px;
     height: 450px;
     box-shadow: 1px 1px 20px #e4e6ea;
@@ -24,9 +27,10 @@
 }
 
 .login-logo{
+    font-family: 'Vollkorn', serif;
     font-size: 60px;
     height: 90px;
-    color: rgba(15, 170, 241, 0.863);
+    color: rgba(0, 0, 0, 0.863);
     margin-top: 35px;
     margin-left:15%;
     
@@ -63,16 +67,16 @@
     margin-left:3%;
 }
 
-.img-sea{
+.img-login{
     border-radius: 0 30px 30px 0;
     width:455.9px;
     height:450px;
-    margin-top: -90px;
+    margin-top: -125px;
     margin-left: 56px;
 }
 
 @media screen and (max-width: 768px) {
-    .img-sea{
+    .img-login{
         display:none;
     }
     .login-logo{
