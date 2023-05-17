@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@500&display=swap');
+
 .header-project {
   height: 100vh;
   background-color: #f6f7fb;
@@ -17,6 +19,7 @@
   }
   
   .header-text{
+    
     font-size: 30px;
     margin-left: 28%;
     margin-top: 3.8%;

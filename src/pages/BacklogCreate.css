@@ -32,6 +32,7 @@
 }
 
 .container-bck-title-a{
+    margin-top: 20px;
     margin-left:20px;
 }
 
@@ -61,8 +62,15 @@
     /* background-color: rgb(255, 255, 255); */
     width: 530px;
     height: 165px;
+    margin-top: 0px;
 }
 
 .mb-3{
     margin-left: 20px;
+   
+}
+
+.container-bck-select{
+    margin-left: 4%;
+    width:480px;
 }

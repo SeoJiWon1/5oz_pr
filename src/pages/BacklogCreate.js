@@ -138,7 +138,7 @@ function BacklogCreate(){
             
             <div className = 'container-bck-enddate'>
                 <div className="mb-3">
-                    <label htmlFor="example-date" className="form-label">Date</label>
+                    <label htmlFor="example-date" className="form-label">종료 일자</label>
                     <input 
                         className="form-bck-control" 
                         id="example-date" 

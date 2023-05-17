@@ -51,7 +51,7 @@ function BacklogSelect(){
         <div className='backlogselect-background'>
           <div className='backlogselect-header'>
               <div className = "backlogselect-text">
-                  B a c k L o g
+                  B A C K L O G
               </div>
               <button onClick = {navigateBacklogCreate} className="backlog-btncrt"> 백로그 만들기</button>
           </div>
@@ -64,8 +64,9 @@ function BacklogSelect(){
                   <div className='backlogselect-card'>
 
                     <div className = 'backlogselect-card-projecttitle'>
-                      프로젝트 /   
+                      프로젝트 /<br></br>   
                       {backlog.projectTitle}
+                      <hr></hr>
                     </div>
 
                     <div className='backlogselect-card-title'>

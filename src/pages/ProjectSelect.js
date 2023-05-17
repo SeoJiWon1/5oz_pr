@@ -73,7 +73,7 @@ function GetProject(props){
     <div> 
       <table>
         <thead>
-          <tr>
+          <tr className='projectselect-txt'>
             <th style={{width:"200px"}}>번 호</th>
             <th style={{width:"300px"}}>프로젝트명</th>
             <th style={{width:"300px"}}>시작 일자</th>

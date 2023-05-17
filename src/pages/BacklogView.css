@@ -1,0 +1,24 @@
+.backlog-table-title{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.backlog-table-th{
+    width: 200px;
+    text-align: center;
+    height: 20px;
+}
+
+.backlog-table{
+    width: 100%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+  }
+  .backlog-table-th, .backlog-table-td {
+    border-bottom: 1px solid #444444;
+    border-left: 1px solid #444444;
+    padding: 10px;
+  }
+
+  .backlog-table-th:first-child, .backlog-table-td:first-child {
+    border-left: none;
+  }

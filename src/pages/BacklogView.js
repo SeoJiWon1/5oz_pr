@@ -1,3 +1,4 @@
+import "./BacklogView.css";
 import axios from'axios';
 import { Await, useNavigate, useLocation, Link } from "react-router-dom";
 import {useEffect, useState} from 'react';
@@ -72,27 +73,26 @@ function BacklogView(){
             <Link to="/BacklogSelect" className = "link">뒤로 가는 버튼 위치</Link>
             <div className="container-pr">
                 <div className="container-pr-left">
-                    <div></div>
-                    <h3>백로그 </h3>
-                    <h6>백로그 제목</h6>
-                    <div className='backlogselect-card-title'>
-                      <h2>{backlog.title}</h2>
-                    </div>
+                    <h3 className='backlog-table-title'>백로그 </h3>
 
-                    <div className = 'backlogselect-card-content'>
-                      <p>목적: {backlog.description}</p>
-                    </div>
-
-                    <div className = 'backlogselect-card-deadline'>
-                      deadline: 
-                      {backlog.deadline}
-                    </div>
-
-                    <div className = 'backlogselect-card-deadline'>
-                      projetTitle: 
-                      {backlog.projectTitle}
-                    </div>
-
+                    <table className='backlog-table'>
+                      <tr className='backlog-table-tr'>
+                        <th className='backlog-table-th'>프로젝트 제목</th>
+                        <td className='backlog-table-td'>{backlog.projectTitle}</td>
+                      </tr>
+                      <tr className='backlog-table-tr'>
+                        <th className='backlog-table-th'>백로그 제목</th>
+                        <td className='backlog-table-td'>{backlog.title}</td>
+                      </tr>
+                      <tr className='backlog-table-tr'>
+                        <th className='backlog-table-th'>목적</th>
+                        <td className='backlog-table-td'>{backlog.description}</td>
+                      </tr>
+                      <tr className='backlog-table-tr'>
+                        <th className='backlog-table-th'>종료 날짜</th>
+                        <td className='backlog-table-td'>{backlog.deadline}</td>
+                      </tr>
+                    </table>
                 </div>
                 <div className='container-pr-right'>
                 <div className="btn-right">
