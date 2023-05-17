@@ -1,3 +1,4 @@
+import "./ProjectView.css";
 import axios from'axios';
 import { Await, useNavigate, useLocation, Link } from "react-router-dom";
 import {useEffect, useState} from 'react';
@@ -69,14 +70,22 @@ function ProjectView (){
             <Link to="/ProjectSelect" className = "link">뒤로 가는 버튼 위치</Link>
             <div className="container-pr">
                 <div className="container-pr-left">
-                    <div></div>
-                    <h3>프로젝트 설정</h3>
-                    <h6>프로젝트 명</h6>
-                    {/* {seq} */}
-                    {project.title}
-      
-                    <h6>프로젝트 관리자</h6>
-                    {project.assign}
+
+                    <h3 className="project-table-title">프로젝트 설정</h3>
+                    <table className="project-table">
+                      <tr className="project-table-tr"> 
+                        <th className="project-table-th">프로젝트명</th>
+                        <td className="project-table-td">{project.title}</td>
+                      </tr>
+                      <tr className="project-table-tr"> 
+                        <th className="project-table-th">프로젝트 관리자</th>
+                        <td className="project-table-td">{project.assign}</td>
+                      </tr>
+                      <tr className="project-table-tr"> 
+                        <th className="project-table-th">종료 날짜</th>
+                        <td className="project-table-td">{project.deadline}</td>
+                      </tr>
+                    </table>
                     
                 </div>
                 <div className='container-pr-right'>

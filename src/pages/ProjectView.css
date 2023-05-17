@@ -1,0 +1,24 @@
+.project-table-title{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.project-table-th{
+    width: 200px;
+    text-align: center;
+    height: 20px;
+}
+
+.project-table{
+    width: 100%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+  }
+  .project-table-th, .project-table-td {
+    border-bottom: 1px solid #444444;
+    border-left: 1px solid #444444;
+    padding: 10px;
+  }
+
+  .project-table-th:first-child, .project-table-td:first-child {
+    border-left: none;
+  }
